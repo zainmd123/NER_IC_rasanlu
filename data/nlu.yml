@@ -1,0 +1,109 @@
+version: "2.0"
+
+nlu:
+- regex: bucket_id
+  examples: |
+    - /d{10}
+
+- regex: account_id
+  examples: |
+    - /d{6}
+
+- regex: user_name
+  examples: |
+    - [a-zA-Z]*
+
+- regex: action
+  examples: |
+    - [a-zA-Z]*
+
+- regex: role_name
+  examples: |
+    - [a-zA-Z]*
+
+- intent: access
+  examples: |
+    - Who has read access to [KMS](service)?
+    - Who can [KMS](service) be read by?
+    - Who has write access to [KMS](service)?
+    - Whom can [KMS](service) be written to by?
+    - Which [users](user) can access a specific [S3 bucket](container) [1234567890](bucket_id)?
+    - Who has access to [S3 bucket](container) [9876543210](bucket_id)?
+    - Which access [keys](keys) allow access to [DB instances](service)?
+    - Which access [keys](keys) allows [DB instance](service) access?
+    - Who are the external [users](user) who have access to my [RDS instances and clusters](service)?
+    - Does an external [user](user) have access to my [RDS instance and cluster](service)?
+
+- intent: change_logging_levels
+  examples: |
+    - Which [roles](roles) can change the [logging level](log level) for [cloudtrail](service)?
+    - Can [cloudtrail](service) [logging level](log level) be changed by [role](roles) [abcdef](role_name)?
+    - Which [users](user) can change the [logging level](log level) for [cloudtrail](service)?
+    - Are [cloudtrail](service) [logging levels](log level) editable?
+    - Which [roles](roles) can change the [logging level](log level) for [cloudwatch](service)?
+    - Which [users](user) can change the [logging level](log level) for [cloudwatch](service)?
+
+- intent: assume
+  examples: |
+    - Which [roles](roles) can [user](user) [username](user_name) assume?
+    - What [role](roles) can be assumed by [user](user) [username](user_name)?
+    - Show which [users](user) can assume the [role](roles) [rolename](role_name)?
+
+- intent: belong
+  examples: |
+    - Which [user groups](groups) does the [user](user) [username](user_name) belong to?
+    - Does the [user](user) [username](user_name) belong to [user groups](groups)?
+
+- intent: enable_S3_Bucket_logging
+  examples: |
+    - Who could enable [S3 bucket](container) logging in account [123456](account_id)?
+    - Which [users](user) can [S3 bucket](container) logging for account [457832](account_id) be enabled by?
+
+- intent: disable_S3_Bucket_logging
+  examples: |
+    - Who could disable [S3 bucket](container) logging in account [597124](account_id)?
+    - Which [users](user) can [S3 bucket](container) logging for account [636790](account_id) be disabled by?
+
+- intent: delete_S3_Bucket
+  examples: |
+    - Can [user](user) [username](user_name) delete this [S3 bucket](container) [12345](bucket_id)?
+    - Which [users](user) can delete this [S3 bucket](container) [98765](bucket_id)?
+    
+- intent: take_action
+  examples: |
+    - Which [users](user) can take [action](action)?
+    - Who can [action](action) be taken by?
+
+- intent: list_roles_policies
+  examples: |
+    - What are the [roles](roles) and [policies](policies) that are attached to [EC2 instances](service) that are facing the internet?
+
+- intent: write_priveleges
+  examples: |
+    - Who has write privileges to the [route table](table)?
+    - Who can [route table](table) be written to by?
+    - Who has write privileges to the [network gateway](service)?
+    - Which [user](user) can write to [security groups](groups)?
+    - Who has write privileges to the [security groups](groups)?
+    - Who has write privileges to [Guard duty](service)?
+    - Who has write privileges to [Security hub](service)?
+    
+- intent: admin_priveleges
+  examples: |
+    - Who has admin privileges to the [route table](table)?
+    - Who has admin privileges to the [network gateway](service)?
+    - Which [user](user) can access the [route table](table) as admin?
+    - Who has admin privileges to the [security groups](groups)?
+    - Who has admin privileges to [Guard duty](service)?
+    - Who has admin privileges to [Security hub](service)?
+
+- intent: num_resources
+  examples: |
+    - How many [resources](resource) are there for [EC2](service)?
+    - How many [resources](resource) are there for [EC2](service) with [OS query](query)?
+    -  How many [resources](resource) are there for [cloudtrail](service)?
+
+- intent: active_services
+  examples: |
+    - What are the [active services](service) for account [135798](account_id)?
+    - How many services are active for account [987654](account_id)?

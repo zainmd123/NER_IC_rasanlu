@@ -1,0 +1,36 @@
+version: "2.0"
+
+intents:
+  - access
+  - change_logging_levels
+  - assume
+  - belong
+  - enable_S3_Bucket_logging
+  - disable_S3_Bucket_logging
+  - delete_S3_Bucket
+  - take_action
+  - list_roles_policies
+  - write_priveleges
+  - admin_priveleges
+  - num_resources
+  - active_services
+
+entities:
+  - service
+  - bucket_id
+  - account_id
+  - user_name
+  - action
+  - role_name
+  - user
+  - container
+  - roles
+  - groups
+  - policies
+  - table
+  - resource
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
